@@ -59,193 +59,6 @@ int min(int a, int b)
 }
 
 // void solve(){
-//     int n,a,b;
-//     cin>>n>>a>>b;
-
-//     double k = (2*(b-a) + 1)/2;
-
-//     int k1 = floor(k);
-//     int k2 = ceil(k);
-
-//     if(k1<=n && k1>0){
-//         int ans = (k1*(b+1) - ((k1*(k1+1))/2) + a*(n-k1));
-//     }
-//     if(k2<=n && k2)
-
-//     if(k>0 && k<n){
-//         cout<<(int)(k*(b+1) - ((k*(k+1))/2) + a*(n-k))<<endl;
-//     }
-//     else{
-//         cout<<a*n<<endl;
-//     }
-// }
-
-// vector<int> moves = {0,-1,0,1,0};
-
-// int helper(int i,int cnt,vector<int>& arr){
-//     if(cnt == 0){
-
-//     }
-// }
-
-// int lcs(int i,int j,string& a,string& b,vector<vector<int>>& dp){
-//     // if(i == a.length() && j == b.length()) return 0;
-//     if(i==a.length() || j==b.length()) return 0;
-//     if(dp[i][j] != -1) return dp[i][j];
-
-//     int ans = INT_MIN;
-//     if(a[i] == b[j]){
-//         ans = 1 + lcs(i+1,j+1,a,b,dp);
-//     }
-
-//     ans = max(ans,max(lcs(i+1,j,a,b,dp),lcs(i,j+1,a,b,dp)));
-
-//     return dp[i][j] = ans;
-// }
-
-// void solve(){
-//     int n,q;
-//     cin>>n>>q;
-
-//     string s,t;
-//     cin>>s;
-//     cin>>t;
-
-//     vvi a(26,vi(n,0)),b(26,vi(n,0));
-
-//     for(int i = 0;i<26;i++){
-//         char c = i + 'a';
-//         for(int j = 0;j<n;j++){
-//             if(s[j] == c){
-//                 a[i][j] = 1;
-//             }
-//             if(t[j] == c){
-//                 b[i][j] = 1;
-//             }
-//         }
-//     }
-
-//     for(int i = 0;i<26;i++){
-//         for(int j = 1;j<n;j++){
-//             a[i][j] += a[i][j-1];
-//             b[i][j] += b[i][j-1];
-//         }
-//     }
-
-//     // cout<<'a'<<"           "<<'b'<<endl;
-//     // for(int i = 0;i<26;i++){
-//     //     for(int j = 0;j<n;j++){
-//     //         cout<<a[i][j]<<" ";
-//     //     }
-//     //     for(int j = 0;j<n;j++){
-//     //         cout<<b[i][j]<<" ";
-//     //     }
-//     //     cout<<endl;
-//     // }
-
-//     while(q--){
-//         int l,r;
-//         cin>>l>>r;
-//         l--;
-//         r--;
-
-//         int ans = 0;
-//         for(int i = 0;i<26;i++){
-//             int iInb = b[i][r];
-//             int iIna = a[i][r];
-//             if(l > 0){
-//                 iInb -= b[i][l-1];
-//                 iIna -= a[i][l-1];
-//             }
-//             ans += (abs(iInb - iIna));
-//         }
-//         cout<<ans/2<<endl;
-//     }
-// }
-
-// void solve(){
-//     int n,m,k;
-//     cin>>n>>m>>k;
-
-//     vc a(n+1);
-//     for(int i = 1;i<=n;i++){
-//         cin>>a[i];
-//     }
-
-//     int i = 0;
-//     while(i<n+1){
-//         if(i == 0 || a[i] == 'L'){
-//             int j = i+m;
-//             if(j >= n+1){
-//                 cout<<"Yes"<<endl;
-//                 return;
-//             }
-//             int lastWidx = -1;
-//             int lastLidx = -1;
-//             while(j>i){
-//                 if(a[j] == 'L'){
-//                     lastLidx = max(lastLidx,j);
-//                 }
-//                 if(a[j] == 'W'){
-//                     lastWidx = max(lastWidx,j);
-//                 }
-//                 j--;
-//             }
-//             if(lastLidx != -1 && lastLidx != i){
-//                 i = lastLidx;
-//             }else if(lastWidx != -1){
-//                 i = lastWidx;
-//             }else{
-//                 cout<<"No"<<endl;
-//                 return;
-//             }
-//         }
-//         else if(a[i] == 'W'){
-//             int cnt = 0;
-//             while(i<n+1 && a[i] == 'W'){
-//                 if(a[i] == 'C'){
-//                     cout<<"No"<<endl;
-//                 }
-//                 cnt++;
-//                 i++;
-//             }
-//             if(cnt>k){
-//                 cout<<"No"<<endl;
-//                 return;
-//             }
-//             if(i == n+1){
-//                 cout<<"Yes"<<endl;
-//                 return;
-//             }
-//             k -= cnt;
-//         }
-//         else if(a[i] == 'C'){
-//             cout<<"No"<<endl;
-//             return;
-//         }
-//     }
-
-//     cout<<"Yes"<<endl;
-// }
-
-// bool check(int node,vector<int> adj[],vector<int>& val,int x){
-//     if(adj[node].size() == 0){
-//         return (val[node] >= x);
-//     }
-
-//     bool fl = 1;
-//     for(auto adjNode:adj[node]){
-//         if(val[node]+x >= ){
-//             fl &= check(adjNode,adj,val,x);
-//         }else{
-//             fl &= check(adjNode,adj,val,x + (x-val[node]));
-//         }
-//     }
-
-//     return fl;
-// }
-
-// void solve(){
 //     int n;
 //     cin>>n;
 
@@ -320,247 +133,168 @@ int min(int a, int b)
 //     cout<<val[0] + ans<<endl;
 // }
 
-// void solve(){
-//     int n,m;
-//     vi a;
-
-//     cin>>n;
-//     for(int i=0;i<n;i++){
-//         int x;
-//         cin>>x;
-//         a.push_back(x);
-//     }
-//     cin>>m;
-
-//     set<set<int>> st;
-//     map<int,set<int>> mp;
-//     for(int i = 0;i<n;i++){
-//         mp[a[i]].insert(i);
-//     }
-//     for(auto i:mp){
-//         st.insert(i.second);
-//     }
-
-//     mp.clear();
-
-//     // for(auto i:st){
-//     //     for(auto j:i){
-//     //         cout<<j<<" ";
-//     //     }
-//     //     cout<<endl;
-//     // }
-//     for(int i = 0;i<m;i++){
-//         string s;
-//         cin>>s;
-
-//         if(s.length() != n){
-//             cout<<"No"<<endl;
-//             continue;
-//         }
-
-//         for(int i = 0;i<s.length();i++){
-//             mp[s[i]].insert(i);
-//         }
-
-//         bool fl = 1;
-//         for(auto j:mp){
-//             set<int> s1 = j.second;
-//             int tmp = a[*(s1.begin())];
-//             for(auto k:s1){
-//                 if(a[k] != tmp){
-//                     fl = 0;
-//                     break;
-//                 }
-//             }
-//             if(fl == 0) break;
-//         }
-//         for(auto j:st){
-//             char tmp = s[*(j.begin())];
-//             for(auto k:j){
-//                 if(s[k] != tmp){
-//                     fl = 0;
-//                     break;
-//                 }
-//             }
-//             if(fl == 0) break;
-//         }
-
-//         mp.clear();
-
-//         if(fl){
-//             cout<<"YES"<<endl;
-//         }else{
-//             cout<<"No"<<endl;
-//         }
-//     }
-//     // cout<<"*********"<<endl;
-// }
-
-// void solve(){
+// void solve()
+// {
 //     int n;
-//     cin>>n;
+//     cin >> n;
 
-//     vi a(n),b(n);
+//     vi adj[n];
+//     for (int i = 1; i < n; i++)
+//     {
+//         int x, y;
+//         cin >> x >> y;
 
-//     for(int i = 0 ;i<n;i++){
-//         cin>>a[i];
+//         adj[x - 1].push_back(y - 1);
+//         adj[y - 1].push_back(x - 1);
 //     }
-//     for(int i = 0 ;i<n;i++){
-//         cin>>b[i];
-//     }
 
-//     int i = 0,ii = 0,j = n-1,jj = n-1;
+//     string s;
+//     cin >> s;
 
-//     while(i<j){
-//         if(a[i] != b[ii] && a[i] != b[jj]){
-//             cout<<"Alice"<<endl;
-//             return;
-//         }else if(a[j] != b[ii] && a[j] != b[jj]){
-//             cout<<"Alice"<<endl;
-//             return;
-//         }else{
-//             if(a[i] == b[ii]){
-//                 i++;
-//                 ii++;
-//             }else if(a[i] == b[jj]){
-//                 i++;
-//                 jj--;
-//             }else if(a[j] == b[ii]){
-//                 j--;
-//                 ii++;
-//             }else if(a[j] == b[jj]){
-//                 j--;
-//                 jj--;
-//             }
+//     int cnt0 = 0,cnt1 = 0,cntq = 0;
+
+//     function<void(int node, int par)> dfs = [&](int node, int par) -> void
+//     {
+//         if(adj[node].size() == 1 && adj[node][0] == par){
+//             if(s[node] == '?') cntq++;
+//             else if(s[node] == '0') cnt0++;
+//             else cnt1++;
 //         }
-//     }
 
-//     cout<<"Bob"<<endl;
-// }
-
-
-// void solve(){
-//     int n;
-//     cin>>n;
-
-//     vi a(n);
-//     in(a);
-
-//     sort(all(a));
-
-//     int ans = -1;
-//     cout<<a[n/2]<<endl;
-// }
-
-// void solve(){
-//     int n;
-//     cin>>n;
-
-//     vector<int> ans(n+1,-1);
-
-//     function<int(int u,int v)> query = [&](int u,int v)->int{
-//         cout<<"? "<<u<<" "<<v<<endl;
-//         int res;
-//         cin>>res;
-//         cout.flush();
-
-//         return res;
+//         for(auto adjNode:adj[node]){
+//             if(adjNode != par)
+//                 dfs(adjNode,node);
+//         }
 //     };
 
-//     ans[1] = 1;
-//     for(int i = 2;i<=n;i++){
-//         int lastAncestor = 1;
-//         while(true){
-//             int x = query(i,lastAncestor);
-//             if(x == i){
-//                 break;
-//             }
-//             lastAncestor = x;
-//         }
-//         ans[i] = lastAncestor;
-//     }
+//     dfs(0,-1);
 
-//     cout<<"! ";
-//     for(int i = 2;i<=n;i++){
-//         cout<<i<<" "<<ans[i]<<" ";
-//     }
-//     cout<<endl;
-// }
-
-// void solve(){
-//     int n,k;
-//     cin>>n>>k;
-
-//     vi a(n);
-//     in(a);
-
-//     sort(all(a),greater<int>());
-
-//     int sc = 0;
-//     if(n&1){
-//         sc = a[n-1];
-//     }
-    
-//     priority_queue<int> q;
-//     for(int i = 0;i<n-1;i+=2){
-//         sc += (a[i] - a[i+1]);
-//         q.push(a[i] - a[i+1]);
-//     }
-
-//     if(k == 0){
-//         cout<<sc<<endl;
-//         return;
-//     }
-
-//     while(!q.empty() && k){
-//         int x = q.top();
-//         q.pop();
-//         if(k >= x){
-//             sc -= x;
-//             k -= x;
-//         }else if(k > 0){
-//             sc -= k;
-//             k = 0;
-//         }
-//     }
-
-//     cout<<sc<<endl;
-// }
-
-// void solve(){
-//     int n,a,b;
-//     cin>>n>>a>>b;
-
-//     vi v(n);
-//     in(v);
-
-//     int g = __gcd(a,b);
-
-//     for(auto &i:v){
-//         i %= g;
-//     }
-
-//     int ans = INT_MAX;
-//     sort(all(v));
-
-//     int maxi = v[n-1];
-
-//     for(int i = 0;i<n;i++){
-//         ans = min(ans,maxi - v[i]);
-//         maxi = v[i] + g;
+//     int ans = 0;
+//     if(s[0] == '?'){
+//         cntq--;
+//         ans = max(cnt0,cnt1) + (cntq/2) + (cntq%2);
+//     }else if(s[0] == '0'){
+//         ans = cnt1 + (cntq/2) + (cntq%2);
+//     }else{
+//         ans = cnt0 + (cntq/2) + (cntq%2);
 //     }
 
 //     cout<<ans<<endl;
 // }
 
-void solve(){
-    
-}
+// vector<int> isSq(1e6,0);
+
+// void solve(){
+//     int n;
+//     cin>>n;
+
+//     string s;
+//     cin>>s;
+
+//     if(isSq[n]){
+//         int len = sqrt(n);
+//         for(int i = 0;i<len;i++){
+//             for(int j = 0;j<len;j++){
+//                 if(i == 0 || i == len-1 || j == 0 || j == len - 1){
+//                     if(s[i*len + j] != '1'){
+//                         cout<<"No"<<endl;
+//                         return;
+//                     }
+//                 }else{
+//                     if(s[i*len + j] != '0'){
+//                         cout<<"No"<<endl;
+//                         return;
+//                     }
+//                 }
+//             }
+//         }
+//         cout<<"Yes"<<endl;
+//     }else{
+//         cout<<"No"<<endl;
+//     }
+// }
+
+// void solve(){
+//     int l,r;
+//     cin>>l>>r;
+
+//     if(l == r){
+//         cout<<1<<endl;
+//         return;
+//     }
+
+//     int k = 1;
+//     int cnt = 1;
+//     for(int i = l;i<=r;){
+//         if(i+k<=r)
+//             cnt++;
+//         i += k;
+//         k++;
+//     }
+
+//     cout<<cnt<<endl;
+// }
+
+// void solve(){
+//     int n;
+//     cin>>n;
+
+//     vi p(n+1);
+//     for(int i = 1;i<=n;i++){
+//         cin>>p[i];
+//     }
+
+//     string s;
+//     cin>>s;
+
+//     vi vis(n+1,0);
+//     map<int,int> isBlack;
+
+//     for(int i = 0;i<n;i++){
+//         if(s[i] == '0'){
+//             isBlack[p[i+1]] = 1;
+//         }
+//     }
+
+//     vvi a;
+//     for(auto pi:p){
+//         if(pi == 0) continue; 
+//         vi b;
+//         while(!vis[pi]){
+//             vis[pi] = 1;
+//             b.push_back(pi);
+//             pi = p[pi];
+//         }
+//         if(b.size()){
+//             a.push_back(b);
+//         }
+//     }
+
+//     vi ans(n+1,0);
+//     for(auto i:a){
+//         int nBlack = 0;
+//         for(auto j:i){
+//             if(isBlack[j]) nBlack++;
+//         }
+//         for(auto j:i){
+//             ans[j] = nBlack;
+//         }
+//     }
+
+//     for(int i = 1;i<=n;i++){
+//         cout<<ans[i]<<" ";
+//     }
+//     cout<<endl;
+// }
 
 int32_t main()
 {
     int t;
     cin >> t;
+
+    // for(int i = 0;i*i<=1e6;i++){
+    //     isSq[i*i] = 1;
+    // }
 
     while (t--)
     {
