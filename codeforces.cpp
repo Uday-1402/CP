@@ -59,41 +59,19 @@ int min(int a, int b)
 }
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
+    int n,x;
+    cin>>n>>x;
 
-    int l = 1;
-    int r = n;
-
-    int idx = 1;
-
-    function<pair<int,int>(int mid)> val = [&](int mid)->pair<int,int>{
-        int s = (n*(2*k + n - 1))/2;
-        int s1 = (mid*(2*k + mid - 1))/2;
-        int s2 = s - s1;
-
-        return {s1,s2};
-    };
-
-    while(l<=r){
-        int mid = l + (r-l)/2;
-        
-        pair<int,int> p = val(mid);
-        int s1 = p.first;
-        int s2 = p.second;
-        if(s1 <= s2){
-            idx = mid;
-            l = mid+1;
-        }else{
-            r = mid -1 ;
+    int ans = 0;
+    for(int a = 1;a<=n;a++){
+        for(int b = 1;b<=n/a;b++){
+            if(x - a - b > 0){
+                ans += min((int)(n-(a*b))/(a+b),x - a - b);
+            }
         }
     }
 
-    auto p1 = val(idx);
-    auto p2 = val(idx+1);
-
-    cout<<min(abs(p1.first-p1.second),abs(p2.first-p2.second))<<endl;
-
+    cout<<ans<<endl;
 }
 
 int32_t main()
