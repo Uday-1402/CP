@@ -58,96 +58,65 @@ int min(int a, int b)
     return b;
 }
 
-int callBack(int p,int q){
-    return p&q;
+int callBack(int p, int q)
+{
+    return p & q;
 }
 
-int higherOrder(int a,int b,function<int(int c,int d)> callBack){
-    return callBack(a,b);
+int higherOrder(int a, int b, function<int(int c, int d)> callBack)
+{
+    return callBack(a, b);
 }
 
-//Problem B
+int _ceil(double x){
+    if((double)(x - (int)x) > 0.0) return (int)x + 1;
+    return (int)x;
+}
+
 // void solve(){
-//     int n;
-//     cin>>n;
+//     string s,t;
+//     cin>>s;
+//     cin>>t;
 
-//     vi a(n);
-//     in(a);
+//     int n = s.length();
+//     int m = t.length();
+//     int j = 0;
 
-//     cout<<a[n-1]<<" ";
-//     for(int i = 0;i<n-1;i++){
-//         cout<<a[i]<<" ";
-//     }
-
-//     cout<<endl;
-// }
-
-// Problem C
-// void solve(){
-//     int n,k;
-//     cin>>n>>k;
-    
-//     vpi a(n);
-//     for(int i = 0;i<n;i++){
-//         cin>>a[i].x;
-//     }
-//     for(int i = 0;i<n;i++){
-//         cin>>a[i].y;
-//     }
-
-//     sort(all(a));
-    
-//     function<int(int i)> medianIdx = [&](int i)->int{
-//         int val = (n - 1)/2 + (n-1)%2;
-//         if(i < val){
-//             return val;
-//         }
-//         return val -1;
-//     };
-
-//     function<bool(int num)> check = [&](int num)->int{
-//         int reqCnt = (n + 1)/2 + 1;
-//         int remOps = k;
-//         for(int i = n-1;i>=0;i--){
-//             if(a[i].x >= num){
-//                 reqCnt--;
-//             }else if(a[i].y){
-//                 if(num - a[i].x <= remOps){
-//                     remOps -= (num - a[i].x);
-//                     reqCnt--;
-//                 }
-//             }
-//         }
-//         return reqCnt <= 0;
-//     };
-
-//     int ans = a[n-1].x + a[medianIdx(n-1)].x;
-//     // cout<<ans<<"*1"<<endl;
-//     for(int i = n-1;i>=0;i--){
-//         if(a[i].y){
-//             ans = max(ans,a[i].x + k + a[medianIdx(i)].x);
-//             break;
-//         }
-//     }
-//     // cout<<ans<<"*2"<<endl;
-
-//     int l = 1;
-//     int r = 1e9;
-
-//     while(l<=r){
-//         int mid = l + (r-l)/2;
-
-//         if(check(mid)){
-//             ans = max(ans,a[n-1].x + mid);
-//             l = mid+1;
+//     for(int i = 0;i<n&&j<m;){
+//         if(s[i] == t[j]){
+//             i++;
+//             j++;
+//         }else if(s[i] == '?'){
+//             s[i] = t[j];
+//             i++;
+//             j++;
 //         }else{
-//             r = mid-1;
+//             i++;
 //         }
 //     }
 
-//     // cout<<ans<<"*3"<<endl;
-//     cout<<ans<<endl;
+//     if(j == m){
+//         cout<<"Yes\n";
+//         for(int i = 0;i<n;i++){
+//             if(s[i] == '?') s[i] = 'x';
+//         }
+//         cout<<s<<endl;
+//         return;
+//     }
+//     cout<<"No\n";
 // }
+
+int val[200001];
+
+void solve()
+{
+    int l, r;
+    cin >> l >> r;
+
+    int ans = val[l] + val[r] - 2*val[l-1];
+
+    cout << ans << endl;
+}
 
 int32_t main()
 {
@@ -157,12 +126,38 @@ int32_t main()
 
     // cout<<higherOrder(1,2,callBack);
 
+    function<void()> test = []() -> void
+    {
+        int cnt = 0;
+        int x = 200000;
+        while (x)
+        {
+            cnt++;
+            x /= 3;
+        }
+
+        cout << cnt << endl;
+    };
+    // test();
+
     int t;
     cin >> t;
 
     // for(int i = 0;i*i<=1e6;i++){
     //     isSq[i*i] = 1;
     // }
+
+    for(int i = 0;i<=200000;i++){
+        int tmp = i;
+        while(tmp){
+            val[i]++;
+            tmp /= 3;
+        }
+    }
+
+    for(int i=1;i<=200000;i++){
+        val[i] += val[i-1];
+    }
 
     while (t--)
     {
