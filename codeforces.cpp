@@ -3,7 +3,6 @@
 #define int long long
 #define x first
 #define y second
-#define vi vector<int>
 #define vvi vector<vector<int>>
 #define vc vector<char>
 #define vvc vector<vector<char>>
@@ -16,7 +15,8 @@
     {                 \
         cin >> i;     \
     }
-
+#define N 1000000007
+#define vector<int> vi;
 using namespace std;
 
 bool secondSmall_firstLarge(pair<int, int> &a, pair<int, int> &b)
@@ -56,6 +56,20 @@ int min(int a, int b)
     if (a < b)
         return a;
     return b;
+}
+
+//Finds (a^m-2 = a^-1 mod m) when m is prime. In CF m is mostly 1e9 + 7 which is prime.
+//Helpful in modular arithmetic involving division.
+int inv(int a,int m){
+    // a^(m-2) = a^-1 mod m; (if m is prime, in our case 1e9 + 7) (we will be passing m-2 to this function.)
+    int res = 1;
+    while(m){
+        if(m&1) res = (res*a)%N;
+        a = (a*a)%N;
+        m = (m>>1);
+    }
+
+    return res%N;
 }
 
 int callBack(int p, int q)
@@ -106,18 +120,51 @@ int _ceil(double x){
 //     cout<<"No\n";
 // }
 
-int val[200001];
+//For problem E
+// int val[200001];
 
-void solve()
-{
-    int l, r;
-    cin >> l >> r;
+// void solve()
+// {
+//     int l, r;
+//     cin >> l >> r;
 
-    int ans = val[l] + val[r] - 2*val[l-1];
+//     int ans = val[l] + val[r] - 2*val[l-1];
 
-    cout << ans << endl;
-}
+//     cout << ans << endl;
+// }
+///////////////
 
+//For Problem F
+// int fac[200001];
+
+// void solve(){
+//     int n,k,cnt_z = 0,cnt_o = 0;
+//     cin>>n>>k;
+
+//     auto nCr = [](int n,int r)->int{
+//         if(n < r) return 0;
+//         return ((fac[n]%N) * (inv(fac[n-r]*fac[r] % N,N-2))%N)%N;
+//     };
+
+//     for(int i = 0;i<n;i++){
+//         int x;
+//         cin>>x;
+
+//         if(x){
+//             cnt_o++;
+//         }else{
+//             cnt_z++;
+//         }
+//     }
+
+//     int ans = 0;
+//     for(int i = (k+1)/2;i<=k;i++){
+//         ans += ((nCr(cnt_o,i)%N) * (nCr(cnt_z,k-i)%N))%N;
+//         ans %= N;
+//     }
+
+//     cout<<ans<<endl;
+// }
 int32_t main()
 {
     ios_base::sync_with_stdio(false);
@@ -147,17 +194,27 @@ int32_t main()
     //     isSq[i*i] = 1;
     // }
 
-    for(int i = 0;i<=200000;i++){
-        int tmp = i;
-        while(tmp){
-            val[i]++;
-            tmp /= 3;
-        }
-    }
+//For problem E
+    // for(int i = 0;i<=200000;i++){
+    //     int tmp = i;
+    //     while(tmp){
+    //         val[i]++;
+    //         tmp /= 3;
+    //     }
+    // }
 
-    for(int i=1;i<=200000;i++){
-        val[i] += val[i-1];
-    }
+    // for(int i=1;i<=200000;i++){
+    //     val[i] += val[i-1];
+    // }
+////////////////
+
+//For Problem F
+    // fac[0] = 1;
+
+    // for(int i = 1;i<=200000;i++){
+    //     fac[i] = (fac[i-1]*i)%N;
+    //     fac[i] %= N;
+    // }
 
     while (t--)
     {
